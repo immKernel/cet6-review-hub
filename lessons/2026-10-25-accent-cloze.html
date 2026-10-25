@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>第三套·口音与标准英语 | 六级精读实验室</title>
+<style>
+:root{--bg:#f6f7fb;--paper:#fff;--ink:#20263a;--muted:#737b90;--border:#e5e8f2;--primary:#565ad7;--primarysoft:#eef0ff;--teal:#087d76;--tealsoft:#e7f7f2;--red:#b53d49;--amber:#a56822}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.75;font-size:15px}
+a{color:var(--primary)}button,select,input{font:inherit}button{cursor:pointer}button:focus-visible,select:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #a3a5f9;outline-offset:3px}
+.layout{display:grid;grid-template-columns:238px minmax(0,1fr);min-height:100vh}
+.aside{background:#fff;border-right:1px solid var(--border);padding:28px 20px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:7px}
+.brand{font-size:18px;font-weight:850;line-height:1.35;padding:10px 12px 24px;border-bottom:1px solid var(--border);margin-bottom:15px}.brand small{font-size:11px;color:var(--muted);display:block;font-weight:600;margin-top:6px}
+.side-label{font-size:11px;letter-spacing:1.3px;color:#9ba1b1;font-weight:850;padding:8px 12px}
+.side-link{display:block;padding:11px 12px;border-radius:12px;color:#515b75;text-decoration:none;font-size:14px;font-weight:750}.side-link:hover{background:#f4f5fc}.side-link.current{background:var(--primarysoft);color:#454ac3}
+.aside-foot{margin-top:auto;padding:14px;background:#f4f5ff;border-radius:14px;color:#5e6791;font-size:12px}
+main{min-width:0;max-width:1120px;width:100%;margin:0 auto;padding:32px clamp(18px,4vw,60px) 70px}
+.crumb{color:#8990a3;font-size:12px;margin-bottom:20px}.hero{background:linear-gradient(120deg,#fff 0%,#fff 60%,#eceeff 100%);border:1px solid #e6e7f8;padding:34px;border-radius:22px}
+.kicker{font-size:12px;font-weight:900;color:#585ed2;letter-spacing:1.2px}.hero h1{font-size:clamp(28px,4vw,41px);line-height:1.28;margin:8px 0 12px}.lede{color:#656d82;margin:0;max-width:790px}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.pill{font-size:12px;background:var(--primarysoft);color:#5157b8;border-radius:50px;padding:5px 12px;font-weight:750}.pill.green{background:var(--tealsoft);color:var(--teal)}
+h2{font-size:23px;letter-spacing:-.4px;line-height:1.35;margin:37px 0 14px}h3{font-size:17px;margin:0 0 10px}.sub{color:var(--muted);font-size:13px;margin:-4px 0 18px}
+.panel{background:#fff;border:1px solid var(--border);border-radius:17px;padding:24px;margin-bottom:15px;box-shadow:0 6px 24px rgba(35,44,87,.03)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.grid .panel{margin:0}
+.highlight{background:#f5f6ff;padding:14px 17px;border-left:3px solid #797ee1;border-radius:10px;margin:14px 0;color:#414c72}
+.en{font-family:Georgia,"Times New Roman",serif;color:#273047;font-size:17px;line-height:1.8}.chinese{color:#596479;font-size:14px}
+.num{display:inline-block;background:var(--primarysoft);color:#4d53bd;padding:3px 9px;border-radius:8px;font-size:12px;font-weight:850;margin-right:8px}
+.answer{color:var(--teal);font-weight:850}.tag{display:inline-block;background:#eef0ff;color:#4d53bd;font-size:12px;font-weight:700;border-radius:7px;padding:2px 8px}
+.explanation{margin:12px 0 0;border-top:1px dashed #dde2ef;padding-top:11px;color:#4f5a72;font-size:14px}.rule{font-weight:800;color:#4249ad}
+.passage{border-left:3px solid #8288dc;padding-left:19px;margin:10px 0}.passage p{margin:8px 0}
+.sticky-toolbar{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:15px}
+.btn{border:0;border-radius:11px;padding:10px 16px;background:var(--primary);color:#fff;font-weight:800}.btn:hover{filter:brightness(.95)}.btn.secondary{background:var(--primarysoft);color:#4b51bb}.btn.ghost{background:#fff;color:#4b51bb;border:1px solid #dadff6}
+.note{font-size:13px;color:var(--muted)}.result{min-height:26px;color:var(--teal);font-weight:800}
+.question-list{display:grid;gap:12px}.question{background:#fff;border:1px solid var(--border);padding:19px 22px;border-radius:15px}.question.correct{border-color:#a8d9c7;background:#fcfffe}.question.wrong{border-color:#e6bfc3;background:#fffafa}
+.qtop{display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}.question p{margin:8px 0 12px}.question select{width:min(100%,340px);border:1px solid #d8dcef;border-radius:10px;padding:9px 12px;background:#fff;color:var(--ink)}
+.feedback{color:#546078;font-size:13px;margin-top:12px;padding-top:10px;border-top:1px dashed #e0e3ef}.feedback strong{color:var(--primary)}.answer-strip{padding:14px 16px;background:#f1f3ff;border-radius:12px;font-weight:850;letter-spacing:1px;color:#444bb4}
+.table-scroll{overflow-x:auto}.words{width:100%;border-collapse:collapse;min-width:560px}.words th{text-align:left;color:#727b92;font-size:12px;background:#f5f6fc}.words td,.words th{padding:12px 11px;border-bottom:1px solid #edf0f6}.words tr:last-child td{border-bottom:0}.words td:first-child{font-weight:850;color:#5058b7}.words .yes{background:#f4fcf9}.words .word{font-family:Georgia,serif;font-size:17px;font-weight:750}.words td small{color:#8990a2}
+details{border:1px solid var(--border);border-radius:13px;background:#fff;margin-bottom:10px;overflow:hidden}summary{cursor:pointer;padding:14px 18px;font-weight:780;color:#354065}details>div{padding:0 18px 17px;color:#566178}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:13px}.grammar-block{padding:16px;background:#f5f6fc;border-radius:12px}
+.grammar-block b{color:#4f55ba}.grammar-block p{margin:6px 0 0}.mini{font-size:12px;color:#8390a2}.footer{font-size:12px;color:#9da4b3;margin-top:37px;text-align:center}
+@media(max-width:800px){.layout{display:block}.aside{position:static;height:auto;padding:14px 16px;display:block;border-bottom:1px solid var(--border)}.brand{border:0;margin:0;padding:6px 2px 9px}.side-label,.aside-foot{display:none}.side-link{display:inline-block;font-size:12px;padding:7px 10px}.side-link.current{margin-top:4px}main{padding:20px 15px 55px}.hero{padding:24px}.grid,.two{grid-template-columns:1fr}.panel{padding:18px}.question{padding:17px}.en{font-size:16px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="aside" aria-label="章节导航">
+<div class="brand">六级精读实验室<small>CET-6 Review Hub · 新增专题</small></div>
+<div class="side-label">2025 年 12 月第三套</div>
+<a class="side-link" href="../index.html">⌂ 返回复习首页</a>
+<a class="side-link current" href="#top" aria-current="page">◎ 口音与标准英语</a>
+<a class="side-link" href="#practice">✎ 10题互动练习</a>
+<a class="side-link" href="#analysis">▤ 逐题精讲</a>
+<a class="side-link" href="#words">▣ 15个选项词义</a>
+<a class="side-link" href="#grammar">⌘ with 长难句</a>
+<div class="aside-foot">原有第二套精读和学习进度保留不变。本专题的练习进度单独保存在当前浏览器。</div>
+</aside>
+<main id="top">
+<div class="crumb">六级精读实验室 / 2025年12月第三套 / Section A · 26—35</div>
+<header class="hero">
+<div class="kicker">NEW LESSON · 2026.10.25</div>
+<h1>口音与“标准英语”<br>选词填空精讲</h1>
+<p class="lede">文章讨论口音（accent）、方言（dialect）与所谓“标准口音”的关系：语言学家认为绝对统一的标准只是一种理想，但这种观念仍影响不同工作领域对口音的接受程度。</p>
+<div class="pills"><span class="pill">2025年12月 · 第三套</span><span class="pill">Section A · 26—35</span><span class="pill green">10题解析 / 15词 / with复合结构</span></div>
+</header>
+<section aria-labelledby="strategy-title">
+<h2 id="strategy-title">先掌握文章逻辑</h2>
+<div class="grid">
+<div class="panel"><h3>① 区分口音与方言</h3><p>accent 只涉及发音，dialect 还涉及词汇、语法等。它们有关联，但不是 synonym（同义词）。</p></div>
+<div class="panel"><h3>② 所谓“标准”是一种理想</h3><p>许多 laymen 认为某种口音 inherently 更好；语言学家认为这一标准更接近 ideal 而不是 reality。</p></div>
+<div class="panel"><h3>③ 标准随时空变化</h3><p>不同地区和时期存在 multiple standards，广播媒体 across the spectrum 也没有一直遵守同一标准。</p></div>
+<div class="panel"><h3>④ 社会影响依然存在</h3><p>标准口音的观念 influential，某些领域对 deviate from 标准的口音接受度更低，相关差异可能 correlate with 阶层与文化。</p></div>
+</div>
+</section>
+<section id="practice" aria-labelledby="practice-title">
+<h2 id="practice-title">10 道选词填空 · 先练再看答案</h2>
+<p class="sub">依据你提供的真题图片提取关键填空语境。每空从 A—O 中选一个，每个选项只能用一次；保存选项后可以关闭网页继续做。</p>
+<div class="panel"><div class="sticky-toolbar"><button class="btn" id="check">批改这10题</button><button class="btn secondary" id="reveal">查看标准答案</button><button class="btn ghost" id="reset">重新练习</button></div><div class="result" id="result" aria-live="polite">尚未批改</div><p class="note" id="saved-status">每次修改会自动保存到浏览器。</p></div>
+<div class="question-list" id="question-list"></div>
+</section>
+<section id="analysis" aria-labelledby="analysis-title">
+<h2 id="analysis-title">26—35 逐题精讲</h2>
+<p class="sub">先看语法位置，再结合上下文。下面答案按原试卷字母对应。</p>
+<div class="answer-strip">26—35：N G F J H M E C D B</div>
+<div class="grid" style="margin-top:15px">
+<div class="panel"><h3><span class="num">26 · N</span><span class="answer">synonym</span> 同义词</h3><p class="en">Accent is not a <u>synonym</u> for dialect.</p><p class="chinese">口音不是方言的同义词。</p><p class="explanation"><span class="rule">a + 单数名词；synonym for</span> 表示“……的同义词”。后句进一步区分 accent 和 dialect。</p></div>
+<div class="panel"><h3><span class="num">27 · G</span><span class="answer">laymen</span> 外行</h3><p class="en">Many <u>laymen</u> presume that ...</p><p class="chinese">许多非专业人士认为……</p><p class="explanation"><span class="rule">Many + 复数名词</span>；后文与 linguists（语言学家）相对照。</p></div>
+<div class="panel"><h3><span class="num">28 · F</span><span class="answer">inherently</span> 本质上</h3><p class="en">... is <u>inherently</u> the best form of speech.</p><p class="chinese">……本质上是最好的语言表达方式。</p><p class="explanation">副词 <span class="rule">inherently</span> 修饰判断；inherent（adj. 固有的）→ inherently（adv.）。这是一些人的看法，并非作者认同。</p></div>
+<div class="panel"><h3><span class="num">29 · J</span><span class="answer">reality</span> 现实</h3><p class="en">... as an ideal rather than a <u>reality</u>.</p><p class="chinese">……应视为理想，而非现实。</p><p class="explanation"><span class="rule">an ideal ↔ a reality</span> 形成强烈语义对比；rather than 意为“而不是”。</p></div>
+<div class="panel"><h3><span class="num">30 · H</span><span class="answer">multiple</span> 多个的</h3><p class="en">... there have been <u>multiple</u> supposed standards ...</p><p class="chinese">……曾存在多种所谓的标准。</p><p class="explanation">形容词修饰复数 standards；标准随时间与地点变化。</p></div>
+<div class="panel"><h3><span class="num">31 · M</span><span class="answer">spectrum</span> 范围</h3><p class="en">... broadcast outlets across the <u>spectrum</u> ...</p><p class="chinese">……各种类型的广播媒体……</p><p class="explanation"><span class="rule">across the spectrum</span> 是固定表达，意为“涵盖整个范围、各个方面”。此处非物理“光谱”。</p></div>
+<div class="panel"><h3><span class="num">32 · E</span><span class="answer">influential</span> 有影响力的</h3><p class="en">Even so, this idea ... is <u>influential</u>.</p><p class="chinese">即便如此，这种观念仍很有影响力。</p><p class="explanation"><span class="rule">is + 形容词作表语</span>；Even so 表示让步转折：标准不统一，但其社会影响依旧存在。</p></div>
+<div class="panel"><h3><span class="num">33 · C</span><span class="answer">deviate</span> 偏离</h3><p class="en">... accents that <u>deviate</u> from the current standard ...</p><p class="chinese">……偏离当前标准的口音……</p><p class="explanation"><span class="rule">deviate from</span>：偏离；that 引导定语从句，修饰 accents，空格填谓语动词。</p></div>
+<div class="panel"><h3><span class="num">34 · D</span><span class="answer">domains</span> 领域</h3><p class="en">... more accepted in <u>domains</u> such as government, law ...</p><p class="chinese">……在政府、法律等领域更被接受。</p><p class="explanation"><span class="rule">in + 复数名词；such as</span> 后列举具体领域。domain 也可表示“域名”。</p></div>
+<div class="panel"><h3><span class="num">35 · B</span><span class="answer">correlate</span> 相关</h3><p class="en">... may <u>correlate</u> with differences in class and culture ...</p><p class="chinese">……可能与阶层和文化差异存在关联。</p><p class="explanation"><span class="rule">may + 动词原形；correlate with</span> 固定搭配“与……相关”，不等于因果关系。</p></div>
+</div>
+</section>
+<section id="words" aria-labelledby="words-title">
+<h2 id="words-title">A—O 全部 15 个选项 · 词义表</h2>
+<p class="sub">不仅背10个正确答案，也要认识其余5个干扰项。绿色底色为本篇正确使用的词。</p>
+<div class="panel table-scroll"><table class="words"><thead><tr><th>选项</th><th>单词</th><th>词性</th><th>中文含义</th><th>本篇</th></tr></thead><tbody>
+<tr><td>A</td><td class="word">affix</td><td>n. / v.</td><td>词缀；附加、粘贴</td><td>干扰项</td></tr>
+<tr class="yes"><td>B</td><td class="word">correlate</td><td>v.</td><td>相关；使相互关联</td><td>35 ✓</td></tr>
+<tr class="yes"><td>C</td><td class="word">deviate</td><td>v.</td><td>偏离、背离</td><td>33 ✓</td></tr>
+<tr class="yes"><td>D</td><td class="word">domains</td><td>n. 复数</td><td>领域、范围；域</td><td>34 ✓</td></tr>
+<tr class="yes"><td>E</td><td class="word">influential</td><td>adj.</td><td>有影响力的</td><td>32 ✓</td></tr>
+<tr class="yes"><td>F</td><td class="word">inherently</td><td>adv.</td><td>内在地、本质上</td><td>28 ✓</td></tr>
+<tr class="yes"><td>G</td><td class="word">laymen</td><td>n. 复数</td><td>外行、非专业人士</td><td>27 ✓</td></tr>
+<tr class="yes"><td>H</td><td class="word">multiple</td><td>adj.</td><td>多个的、多种的</td><td>30 ✓</td></tr>
+<tr><td>I</td><td class="word">properties</td><td>n. 复数</td><td>性质、特征；财产</td><td>干扰项</td></tr>
+<tr class="yes"><td>J</td><td class="word">reality</td><td>n.</td><td>现实、实际情况</td><td>29 ✓</td></tr>
+<tr><td>K</td><td class="word">reciprocally</td><td>adv.</td><td>相互地、互惠地</td><td>干扰项</td></tr>
+<tr><td>L</td><td class="word">specimen</td><td>n.</td><td>标本、样本</td><td>干扰项</td></tr>
+<tr class="yes"><td>M</td><td class="word">spectrum</td><td>n.</td><td>光谱；范围、系列</td><td>31 ✓</td></tr>
+<tr class="yes"><td>N</td><td class="word">synonym</td><td>n.</td><td>同义词</td><td>26 ✓</td></tr>
+<tr><td>O</td><td class="word">unanimous</td><td>adj.</td><td>一致同意的、全体一致的</td><td>干扰项</td></tr>
+</tbody></table></div>
+<div class="panel"><h3>六级优先背的搭配</h3>
+<p><span class="tag">synonym for</span> ……的同义词　 <span class="tag">presume that</span> 假定……　 <span class="tag">rather than</span> 而不是</p>
+<p><span class="tag">across the spectrum</span> 各种类型、整个范围　 <span class="tag">deviate from</span> 偏离　 <span class="tag">correlate with</span> 与……相关</p>
+<p><span class="tag">perpetuate an idea</span> 使观念持续存在　 <span class="tag">be accepted in</span> 在……被接受</p></div>
+</section>
+<section id="grammar" aria-labelledby="grammar-title">
+<h2 id="grammar-title">长难句专项：with newer ... 到底怎么翻译？</h2>
+<div class="panel">
+<h3>先看整句</h3>
+<div class="passage en"><p>The acceptability of nonstandard accents may correlate with differences in class and culture, <strong>with newer or higher prestige industries expecting more standard speech in the workplace.</strong></p></div>
+<p class="chinese">非标准口音的可接受程度可能与社会阶层和文化差异有关，而新兴行业或声望较高的行业往往要求员工在工作场所使用更加标准的语言。</p>
+<div class="highlight"><strong>核心结构：with + 名词短语 + 现在分词（doing）</strong><br>这里是 with 复合结构，补充说明伴随情况；不是又一个 correlate with 的宾语。</div>
+<div class="two">
+<div class="grammar-block"><b>第一个 with · 固定搭配</b><p class="en">correlate <strong>with</strong> differences in class and culture</p><p>“与阶层和文化差异相关”，属于 correlate with。</p></div>
+<div class="grammar-block"><b>第二个 with · 复合结构</b><p class="en"><strong>with</strong> newer ... industries <strong>expecting</strong> ...</p><p>由行业主动发出 expect（要求、期望）动作，因此使用 expecting。</p></div>
+</div>
+<h3 style="margin-top:22px">把结构拆成四部分</h3>
+<div class="table-scroll"><table class="words"><thead><tr><th>成分</th><th>英文</th><th>作用 / 翻译</th></tr></thead><tbody>
+<tr><td>连接成分</td><td>with</td><td>引出伴随或补充说明</td></tr>
+<tr><td>逻辑主语</td><td>newer or higher prestige industries</td><td>新兴行业或声望较高的行业</td></tr>
+<tr><td>主动动作</td><td>expecting</td><td>要求、期望；现在分词</td></tr>
+<tr><td>宾语及状语</td><td>more standard speech in the workplace</td><td>工作场所中更标准的语言表达</td></tr>
+</tbody></table></div>
+<p class="highlight"><strong>还原成独立句：</strong>Newer or higher prestige industries <strong>expect</strong> more standard speech in the workplace.</p>
+</div>
+<div class="grid">
+<div class="panel"><h3>with + 名词 + doing</h3><p class="en">With technology <strong>developing</strong> rapidly, our lives are changing.</p><p class="chinese">随着技术迅速发展，我们的生活正在变化。technology 主动“发展”。</p></div>
+<div class="panel"><h3>with + 名词 + done</h3><p class="en">With the work <strong>finished</strong>, we went home.</p><p class="chinese">工作完成后，我们回家了。work 是“被完成”的。</p></div>
+</div>
+<div class="panel" style="margin-top:15px">
+<h3>易错点</h3>
+<p><strong>higher prestige</strong>：声望较高，不等于收入较高。<strong>expecting</strong>：在这里是“要求、期望”，而不是“预测”。<strong>correlate with</strong>：表达相关关系，不代表能推断出因果关系。</p>
+<p class="chinese">提示：本页由你提供的试卷图片及学习讨论整理，英语例句中的题干是用于复习的关键片段；答题和词义资料用于个人学习，不是考试机构官方答案。</p>
+</div>
+</section>
+<footer class="footer"><a href="../index.html">← 返回六级精读实验室首页</a> · 学习记录：<a href="../records/2026-10-25.md">2026-10-25</a> · 离线可用</footer>
+</main>
+</div>
+<script>
+"use strict";
+(function(){
+var bank=[
+["A","affix"],["B","correlate"],["C","deviate"],["D","domains"],["E","influential"],
+["F","inherently"],["G","laymen"],["H","multiple"],["I","properties"],["J","reality"],
+["K","reciprocally"],["L","specimen"],["M","spectrum"],["N","synonym"],["O","unanimous"]
+];
+var questions=[
+{n:26,s:"Accent is not a ___ for dialect, but it's related.",a:"N",why:"a 后要单数名词；synonym for 表示“……的同义词”。",zh:"口音并不是方言的同义词，但两者有关联。"},
+{n:27,s:"Many ___ presume that there is a single standard way of speaking in each country.",a:"G",why:"Many 后接复数名词；laymen 与后文 linguists（语言学家）形成对照。",zh:"许多非专业人士认为每个国家都有唯一标准说话方式。"},
+{n:28,s:"... this perceived standard is ___ the best form of speech.",a:"F",why:"需要副词修饰这一判断；inherently 意为“本质上”。",zh:"……这种被认为的标准本质上是最好的说话方式。"},
+{n:29,s:"... better understood as an ideal rather than a ___.",a:"J",why:"an ideal（理想）与 a reality（现实）对照，rather than 表示“而不是”。",zh:"……应该被理解为一种理想，而非现实。"},
+{n:30,s:"... through the years, there have been ___ supposed standards.",a:"H",why:"修饰复数名词 standards；随时间地点变化的所谓标准有多个。",zh:"……多年以来，出现过多种所谓的标准。"},
+{n:31,s:"... broadcast outlets across the ___ have never consistently held to those standards.",a:"M",why:"固定表达 across the spectrum：在整个范围内、各种类型中。",zh:"……各类广播媒体也没有始终遵守那些标准。"},
+{n:32,s:"Even so, this idea of a standard accent is ___.",a:"E",why:"is 后用形容词作表语；Even so 表示转折：该观念仍有影响力。",zh:"即便如此，标准口音的观念仍很有影响力。"},
+{n:33,s:"... accents that ___ from the current standard are less appropriate ...",a:"C",why:"that 从句中需要谓语；deviate from 表示“偏离”。",zh:"……偏离现行标准的口音被认为不太合适。"},
+{n:34,s:"... more accepted in ___ such as government, law and service-oriented workplaces.",a:"D",why:"in 后要名词；such as 后的政府、法律等是不同领域。",zh:"……在政府、法律、服务型工作场所等领域更被接受。"},
+{n:35,s:"... may ___ with differences in class and culture.",a:"B",why:"情态动词 may 后接动词原形；correlate with 表示“与……相关”。",zh:"……可能与阶层和文化差异有关。"}
+];
+var key="cet6_set3_accent_20261025";var answers={};var marked=false;
+try{var saved=JSON.parse(localStorage.getItem(key)||"{}");if(saved&&saved.answers&&typeof saved.answers==="object")answers=saved.answers;}catch(_){}
+function save(){try{localStorage.setItem(key,JSON.stringify({answers:answers}));}catch(_){}}
+var root=document.getElementById("question-list");var result=document.getElementById("result");
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");}
+function render(){
+root.innerHTML=questions.map(function(q){
+var a=answers[q.n]||"";var correct=marked&&a===q.a;var status=marked?(correct?"correct":"wrong"):"";
+var choices='<option value="">请选择 A—O</option>'+bank.map(function(w){return '<option value="'+w[0]+'"'+(a===w[0]?' selected':'')+'>'+w[0]+' · '+w[1]+'</option>';}).join("");
+return '<div class="question '+status+'"><div class="qtop"><strong><span class="num">'+q.n+'</span>选择一个单词</strong>'+(marked?'<span class="'+(correct?'answer':'')+'">'+(correct?'✓ 正确':'✕ 答案 '+q.a)+'</span>':'')+'</div><p class="en">'+esc(q.s)+'</p><label class="mini" for="q'+q.n+'">选项：</label> <select id="q'+q.n+'" data-num="'+q.n+'">'+choices+'</select>'+(marked?'<div class="feedback"><strong>答案 '+q.a+' · '+esc(bank.find(function(w){return w[0]===q.a;})[1])+'</strong><br>'+esc(q.why)+'<br>'+esc(q.zh)+'</div>':'')+'</div>';
+}).join("");
+}
+root.addEventListener("change",function(e){if(!e.target.matches("select[data-num]"))return;answers[e.target.dataset.num]=e.target.value;marked=false;result.textContent="已保存，修改答案后请重新批改。";save();render();});
+document.getElementById("check").addEventListener("click",function(){
+var vals=questions.map(function(q){return answers[q.n]||"";});
+var chosen=vals.filter(Boolean);if(chosen.length!==questions.length){result.textContent="还有 "+(questions.length-chosen.length)+" 题未选择；请先填完。";return;}
+if((new Set(chosen)).size!==chosen.length){result.textContent="同一个选项不能重复使用，请调整重复选项后批改。";return;}
+marked=true;var score=questions.filter(function(q){return answers[q.n]===q.a;}).length;result.textContent="本轮 "+score+" / 10 分。下面显示逐题解析。";render();
+});
+document.getElementById("reveal").addEventListener("click",function(){answers=Object.fromEntries(questions.map(function(q){return [q.n,q.a];}));save();marked=true;result.textContent="已显示标准答案 NGFJHMECDB，可到下方逐题复习。";render();});
+document.getElementById("reset").addEventListener("click",function(){if(!confirm("清空本专题10题的选择并重新开始？"))return;answers={};marked=false;save();result.textContent="已清空，可以重新做题。";render();});
+render();
+})();
+</script>
+</body>
+</html>
