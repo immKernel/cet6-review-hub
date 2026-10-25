@@ -8,6 +8,13 @@ https://immkernel.github.io/cet6-review-hub/
 
 网站主入口是根目录 `index.html`，支持离线打开，不依赖构建工具。GitHub Pages 必须已在 `Settings → Pages` 开启。
 
+## AI 助手维护规范
+
+**[AGENTS.md](AGENTS.md) 是本仓库的正式 AI 维护规则。** 无论使用 Codex、Claude Code、Copilot 或其他 AI，新增英语学习材料前都应先阅读并遵守它，特别是：**一个网站、一个“所有单词”总词库、统一的语法/题库、旧学习进度不丢失**。
+
+- Claude Code 入口：[CLAUDE.md](CLAUDE.md)
+- GitHub Copilot 入口：[.github/copilot-instructions.md](.github/copilot-instructions.md)
+
 ## 使用方式
 
 - **学习总览**：全部文章卡片集中呈现。目前有三篇：第二套 AI 与人类工作、第二套不请自来的建议、第三套口音与标准英语
