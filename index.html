@@ -20,8 +20,22 @@
 .cloze-blank{display:inline-block;color:#4c53b2;border-bottom:1px solid currentColor;white-space:nowrap;padding:0 4px;line-height:1.5;font-size:.85em}
 .cloze-blank.current{background:var(--primarysoft);font-weight:800}
 .cloze-inline-answer{display:inline-block;color:var(--teal);white-space:nowrap;font-size:.9em}
-.cloze-options{list-style:none;padding:0;margin:0 0 18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px 12px;font-size:14px}
+.cloze-options{list-style:none;padding:0;margin:0 0 18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:8px 12px;font-size:14px}
 .cloze-options b{color:var(--primary);margin-right:4px}
+.cloze-options li{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:7px 9px;overflow-wrap:anywhere}
+.cloze-options .meaning{display:block;margin-top:3px;color:#4c5770;line-height:1.55}
+.cloze-paragraph{padding:16px 0;border-top:1px solid var(--border)}
+.cloze-paragraph h3{font-size:.95rem}
+.cloze-paragraph .cloze-en{line-height:1.85;margin:0 0 4px;overflow-wrap:anywhere}
+.cloze-paragraph .cloze-cn{color:#3d4a66;line-height:1.75;margin:0 0 14px;padding:4px 0 4px 10px;border-left:3px solid var(--primarysoft)}
+.cloze-glossary{margin-top:9px}
+.cloze-glossary summary{cursor:pointer;color:var(--primary);font-size:14px;font-weight:700}
+.cloze-glossary dl{margin:8px 0 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr);font-size:14px}
+.cloze-glossary dt,.cloze-glossary dd{margin:0;padding:5px 6px;border-bottom:1px solid var(--border);overflow-wrap:anywhere}
+.cloze-glossary dt{font-weight:700}
+.cloze-glossary dd{color:#4c5770}
+.cloze-study-nav{margin:10px 0}
+.cloze-study-nav a{color:var(--primary);font-size:14px;font-weight:700}
 .cloze-explanations{display:grid;gap:8px;padding:0;list-style:none;margin:0}
 .cloze-explanations li{border:1px solid var(--border);padding:10px 12px;border-radius:10px}
 .cloze-explanations li.focus{border-color:#d2974e;background:var(--ambersoft)}
@@ -109,7 +123,7 @@ const wordbank=[['accompanying','v.-ing / adj.','伴随的；附带的','the gra
 ["high-profile","adj.","备受关注的","a high-profile crash","driving"],
 ["anywhere","adv.","任何地方；在否定句中常译为“哪里都不……”","The policy has not worked anywhere.","rent-caps"],
 ["asserts","v.","断言；坚称（assert 的第三人称单数）","The group asserts that the law will fail.","rent-caps"],
-["constituent","n. / adj.","选民；组成部分；构成的","an elected official listening to a constituent","rent-caps"],
+["constituent","n. / adj.","选区居民；选民；组成部分；构成的","an elected official listening to a constituent","rent-caps"],
 ["correlated","v.-ed / adj.","相关的（correlate 的过去分词）","be closely correlated with income","rent-caps"],
 ["determining","v.-ing","确定；决定（determine 的现在分词）","when determining eligibility","rent-caps"],
 ["devastating","adj.","破坏性极大的；造成严重损害的","a devastating effect on renters","rent-caps"],
@@ -177,6 +191,61 @@ const wordbank=[['accompanying','v.-ing / adj.','伴随的；附带的','the gra
 ["medical history","n. phr.","病史","review a patient’s medical history","healthcare-tech"],
 ["seek medical care","phr.","就医；寻求医疗帮助","make it easier to seek medical care","healthcare-tech"],
 ["meet health needs","phr.","满足健康需求","meet the health needs of local residents","healthcare-tech"]
+,
+  ["proposal","n.","提案；建议","two proposals on rent increases","rent-caps"],
+  ["be before","phr.","提交给……审议；正在由……审议","The proposal is before the state legislature.","rent-caps"],
+  ["state legislature","n. phr.","州议会；州立法机关","a bill before the state legislature","rent-caps"],
+  ["look to do","phr.","打算做；力求做","look to limit rent increases","rent-caps"],
+  ["put limits on","phr.","对……加以限制；给……设限","put limits on rent prices","rent-caps"],
+  ["ever-increasing","adj.","不断上涨的；持续增加的","ever-increasing rent prices","rent-caps"],
+  ["rent prices","n. phr.","租金水平；房租价格","rising rent prices","rent-caps"],
+  ["lawmaker","n.","立法者；议员","some state lawmakers","rent-caps"],
+  ["contribute to","phr.","促成；是……的原因之一","contribute to rising homelessness rates","rent-caps"],
+  ["homelessness rate","n. phr.","无家可归率","a rise in the homelessness rate","rent-caps"],
+  ["impose a cap on","phr.","对……设定上限","impose a cap on rent increases","rent-caps"],
+  ["rent increase","n. phr.","涨租；租金上涨","a cap on rent increases","rent-caps"],
+  ["prevent someone from doing","phr.","阻止某人做某事；使某人不能做某事","prevent landlords from raising rent","rent-caps"],
+  ["raise rent","phr.","提高租金；涨租","raise rent by more than the rate of inflation","rent-caps"],
+  ["rate of inflation","n. phr.","通货膨胀率","rent increases above the rate of inflation","rent-caps"],
+  ["in most cases","phr.","在大多数情况下","The rule applies in most cases.","rent-caps"],
+  ["exception","n.","例外；例外规定","an exception to the rule","rent-caps"],
+  ["public housing","n. phr.","公共住房；公营住房","an exception for public housing","rent-caps"],
+  ["improvements beyond maintenance","n. phr.","超出日常维护范围的改善工程","improvements beyond routine maintenance","rent-caps"],
+  ["Government Accountability Office","proper n.","美国政府问责局（GAO）","researchers at the U.S. Government Accountability Office","rent-caps"],
+  ["estimate","v. / n.","估计；估算；估算值","estimate the rise in homelessness","rent-caps"],
+  ["be correlated to","phr.","与……存在统计上的关联","Higher rents are correlated to higher homelessness rates.","rent-caps"],
+  ["a rise in","phr.","……的上升；……的增加","a 9% rise in homelessness","rent-caps"],
+  ["detrimental effect","n. phr.","不利影响；负面影响","a detrimental effect on low-income groups","rent-caps"],
+  ["demographic group","n. phr.","按人口特征划分的群体","the impact on different demographic groups","rent-caps"],
+  ["racial minority","n. phr.","少数族裔","the impact on racial minorities","rent-caps"],
+  ["representative","n.","代表；美国语境下可指众议员","Representative Alex Ramel","rent-caps"],
+  ["legislation","n.","立法；法规","this kind of legislation","rent-caps"],
+  ["tell the story of","phr.","讲述……的经历","tell the story of a constituent","rent-caps"],
+  ["struggle to do","phr.","艰难地做某事；做某事很吃力","struggle to live in the community","rent-caps"],
+  ["community","n.","社区；当地居民群体","continue to live in the community","rent-caps"],
+  ["point out","phr.","指出；提请注意","point out the effects of higher rent","rent-caps"],
+  ["devastating effect","n. phr.","严重冲击；破坏性影响","the devastating effect of large rent increases","rent-caps"],
+  ["make the decision to","phr.","决定做……","make the decision to introduce legislation","rent-caps"],
+  ["introduce legislation","phr.","提出立法议案；提请审议一项法案","introduce legislation to limit rent increases","rent-caps"],
+  ["recent graduate","n. phr.","刚毕业的人；应届毕业生","a recent graduate from Western Washington University","rent-caps"],
+  ["notify someone that","phr.","通知某人某件事","notify tenants that their rent will rise","rent-caps"],
+  ["go up by","phr.","上涨了……；by 后面接涨幅","The monthly rent went up by $600.","rent-caps"],
+  ["a month","phr.","每月；一个月内按月计","pay $600 more a month","rent-caps"],
+  ["rental housing","n. phr.","出租住房；租赁住房","the rental housing market","rent-caps"],
+  ["oppose","v.","反对","oppose the legislation","rent-caps"],
+  ["assert that","phr.","坚称……；断言……","assert that the policy will fail","rent-caps"],
+  ["solve the problem of","phr.","解决……的问题","solve the problem of high rents","rent-caps"],
+  ["instead","adv.","反而；作为替代","It will hurt small landlords instead.","rent-caps"],
+  ["punish","v.","惩罚；文中指使人吃亏或遭受损失","punish small landlords","rent-caps"],
+  ["wealthy renter","n. phr.","富裕的租客","wealthy renters","rent-caps"],
+  ["easy access to","phr.","容易获得……；能轻易使用……","easy access to cheap housing","rent-caps"],
+  ["cheap housing","n. phr.","价格低的住房；文中指租金便宜的住房","find cheap housing","rent-caps"],
+  ["everywhere","adv. / conj.","到处；凡……的地方","fail everywhere the policy is enacted","rent-caps"],
+  ["be enacted","phr.","被制定并通过；文中指政策被颁布实施","The rent control policy has been enacted.","rent-caps"],
+  ["county","n.","县；美国的地方行政区","in this county","rent-caps"],
+  ["fix a problem","phr.","解决问题","fix a housing problem","rent-caps"],
+  ["not … anywhere","phr.","在任何地方都没有；哪里都不","The policy hasn’t worked anywhere.","rent-caps"],
+  ["get the benefits of","phr.","享受……带来的好处；从……受益","get the benefits of rent control","rent-caps"]
 ].map((x,i)=>({id:i,word:x[0],pos:x[1],meaning:x[2],example:x[3],article:x[4]}));
 const grammar=[
 {title:'同位语从句：解释抽象名词的内容',tag:'选词填空 · 27',kind:'ai',en:'Technology has quashed claims that cognitive tasks require a human brain.',cn:'科技驳倒了认知任务必须依赖人脑的说法。',detail:'这里 that 后是一个完整句子，说明 claims 的具体内容，属于同位语从句，不是缺少成分的定语从句。常见名词还有 fact / idea / belief / news。'},
@@ -230,6 +299,25 @@ const rentClozePassage = [
   ["The Rental Housing Association of Washington opposes the legislation.","The association {32} that the policy won’t actually solve the problem of rental prices.","Instead, it will punish small landlords and allow wealthy renters easy access to cheap housing."],
   ["“The rent control policy has failed everywhere it has been {33} in this county.","It has not fixed one housing problem {34}.","It also does not distinguish between rich and poor when {35} who gets the benefits of rent control,” said Chester Baldwin with the Rental Housing Coalition."]
 ];
+const rentClozeTranslations = [
+  ["州议会正在审议两项提案，打算对持续上涨的租金加以限制。一些议员认为，租金不断攀升，正在推高无家可归率。"],
+  ["这两项提案给租金涨幅设定上限。在大多数情况下，该州房东的涨租幅度不能超过通胀率。","房龄不足十年的建筑、公共住房、超出日常维护范围的改善工程，以及符合困难豁免条件的情形，可以不受这一限制。"],
+  ["在一项 2020 年的研究中，美国政府问责局的研究人员估计，租金每上涨 100 美元，在统计上对应无家可归率上升 9%。","租金上涨对某些人口群体的负面影响更大，例如少数族裔。"],
+  ["州众议员亚历克斯·拉梅尔解释了自己为什么认为这类立法如此重要，并讲述了一位选区居民难以继续在当地生活的经历。"],
+  ["拉梅尔指出，两位数的租金涨幅会造成严重冲击。他说，自己是在贝灵厄姆与一名年轻人交谈时，决定提出这项立法的。","“他刚从西华盛顿大学毕业，也刚找到一份新工作。”拉梅尔说。","“他当时正准备离开我们的社区，因为房东通知他，月租要涨 600 美元。”"],
+  ["华盛顿州租赁住房协会反对这项立法。","该协会坚称，这项政策实际上解决不了租金问题。","这项政策反而会让小房东吃亏，还会让富裕的租客轻易租到便宜的住房。"],
+  ["“在本县，凡是实施过租金管制政策的地方，这项政策都失败了。","它在哪里都没能解决哪怕一个住房问题。","在决定谁能从租金管制中受益时，它也不区分富人和穷人。”租赁住房联盟的切斯特·鲍德温说。"]
+];
+const rentClozeParagraphWords = [
+  ["proposal","be before","state legislature","look to do","put limits on","ever-increasing","rent prices","lawmaker","contribute to","homelessness rate"],
+  ["impose a cap on","rent increase","prevent someone from doing","landlord","raise rent","rate of inflation","in most cases","exception","public housing","improvements beyond maintenance","hardship exemption"],
+  ["Government Accountability Office","estimate","be correlated to","a rise in","detrimental effect","demographic group","racial minority"],
+  ["representative","legislation","tell the story of","constituent","struggle to do","community"],
+  ["point out","devastating effect","double-digit","make the decision to","introduce legislation","recent graduate","notify someone that","go up by","a month"],
+  ["rental housing","oppose","assert that","solve the problem of","instead","punish","wealthy renter","easy access to","cheap housing"],
+  ["rent control","everywhere","be enacted","county","fix a problem","not … anywhere","distinguish between","get the benefits of"]
+];
+const rentClozeWords = new Map(wordbank.map(entry=>[entry.word,entry]));
 const rentClozeOptions = ["anywhere","asserts","constituent","correlated","determining","devastating","enacted","entails","exemption","impose","notified","notwithstanding","presume","rehabilitation","reproaching"];
 const rentClozeQuestions = [
   {"section":"rent-caps","num":26060126,"paperNo":26,"q":"The proposals ___ (26) caps on rent increases, preventing landlords in the state from raising rent more than the rate of inflation in most cases.","answer":9,"why":"proposals 是复数主语，后面用动词原形 impose。impose a cap on 表示“对……设上限”。"},
@@ -295,24 +383,47 @@ const totalParagraphs=articles.reduce((n,a)=>n+a.paras.length,0);
 function countSeen(){return Object.values(state.seen).filter(Boolean).length}
 function updateSidebar(){let n=Object.values(state.learned).filter(Boolean).length;let pct=Math.round((countSeen()/totalParagraphs+n/wordbank.length)*50);$('#sidebarProgress').style.width=pct+'%';$('#sidebarStatus').textContent=`已精读 ${countSeen()}/${totalParagraphs} 段 · 已掌握 ${n}/${wordbank.length} 词`}
 function header(eyebrow,title,desc){return `<p class="eyebrow">${eyebrow}</p><h1 class="h1">${title}</h1><p class="lede">${desc}</p>`}
-function home(){let known=Object.values(state.learned).filter(Boolean).length;return `<div class="hero">${header('YOUR CET-6 REVISION HUB','六级真题，持续精读。','2026 年 6 月 · 第一套现已收录听力复盘、阅读和医疗科技汉译英。')}<div class="toolbar"><button class="btn" data-action="quiz-mode" data-id="june">练习 2026 年 6 月第一套 →</button><button class="btn ghost" data-action="read-article" data-id="rent-caps">查看选词填空原文与解析</button><button class="btn ghost" data-action="read-article" data-id="healthcare-tech">练习医疗科技汉译英</button></div></div>
+function home(){let known=Object.values(state.learned).filter(Boolean).length;return `<div class="hero">${header('YOUR CET-6 REVISION HUB','六级真题，持续精读。','2026 年 6 月 · 第一套现已收录听力复盘、阅读和医疗科技汉译英。')}<div class="toolbar"><button class="btn" data-action="quiz-mode" data-id="june">练习 2026 年 6 月第一套 →</button><button class="btn ghost" data-action="read-article" data-id="rent-caps">查看选词填空原文、译文与解析</button><button class="btn ghost" data-action="read-article" data-id="healthcare-tech">练习医疗科技汉译英</button></div></div>
 <div class="section-head"><h2>学习概况</h2><p>数据自动保存在当前浏览器</p></div><div class="grid3"><div class="surface stat"><div class="lab">精读进度</div><div class="num accent">${countSeen()}<small style="font-size:16px;color:#a0a5b8"> / ${totalParagraphs} 段</small></div><div class="lab">点击「读过了」即可记录</div></div><div class="surface stat"><div class="lab">已掌握单词</div><div class="num success">${known}<small style="font-size:16px;color:#a0a5b8"> / ${wordbank.length} 词</small></div><div class="lab">词汇页可随时标记</div></div><div class="surface stat"><div class="lab">累计作答</div><div class="num accent2">${state.attempts}<small style="font-size:16px;color:#a0a5b8"> 题次</small></div><div class="lab">答对 ${state.correct} 次</div></div></div>
 <div class="section-head"><h2>全部精读文章</h2><p>${articles.length} 个主题</p></div><div class="grid2">${articles.map((a,i)=>`<div class="surface paper-card"><span class="pill ${i===0?'pur':'green'}" style="align-self:start">${a.paper ? h(a.paper)+' · ' : ''}${h(a.label)} · ${h(a.range)}</span><div class="paper-title">${h(a.title)}</div><p>${h(a.summary)}</p><div class="bottom"><small style="color:#929aab">${a.paras.length} 段 · ${h(a.sub)}</small><button class="btn secondary" data-action="read-article" data-id="${a.id}">进入精读 ↗</button></div></div>`).join('')}</div>
 <div class="section-head"><h2>建议复习路径</h2></div><div class="steps"><div class="step"><i>01</i><b>先读懂逻辑</b><p>每段先阅读材料，再对照译文，抓作者的论证思路。</p></div><div class="step"><i>02</i><b>记住同义替换</b><p>词汇卡和长难句重点积累近义转换、固定搭配。</p></div><div class="step"><i>03</i><b>检验并订正</b><p>做完练习后，去错题区集中复盘。</p></div></div>`}
-function rentClozeOriginal({showAnswers=false, activeNo}={}){
-  const paragraphs = rentClozePassage.map(sentences=>{
-    const original = h(sentences.join(' ')).replace(/\{(\d+)\}/g, (_,number)=>{
-      const question = rentClozeByNumber.get(Number(number));
-      const blank = `<span class="cloze-blank${question.paperNo===activeNo?' current':''}">__${number}__</span>`;
-      if (!showAnswers) return blank;
-      return blank + ` <strong class="cloze-inline-answer cloze-solution">(${answerLetters[question.answer]} ${h(question.options[question.answer])})</strong>`;
-    });
-    return `<p>${original}</p>`;
+function formatRentCloze(sentence,{showAnswers=false,activeNo}={}){
+  return h(sentence).replace(/\{(\d+)\}/g, (_,number)=>{
+    const question = rentClozeByNumber.get(Number(number));
+    const blank = `<span class="cloze-blank${question.paperNo===activeNo?' current':''}">__${number}__</span>`;
+    if (!showAnswers) return blank;
+    return blank + ` <strong class="cloze-inline-answer cloze-solution">(${answerLetters[question.answer]} ${h(question.options[question.answer])})</strong>`;
   });
+}
+function rentClozeOriginal(activeNo){
+  const paragraphs = rentClozePassage.map(sentences=>`<p>${formatRentCloze(sentences.join(' '),{activeNo})}</p>`);
   return `<div class="cloze-original" lang="en">${paragraphs.join('')}</div>`;
 }
+function rentClozeOptionList(){
+  return `<ol class="cloze-options">${rentClozeOptions.map((word,index)=>{
+    const {meaning} = rentClozeWords.get(word);
+    return `<li><b>${answerLetters[index]}</b> <span lang="en">${h(word)}</span><span class="meaning">${h(meaning)}</span></li>`;
+  }).join('')}</ol>`;
+}
+function rentClozeBilingual(){
+  return rentClozePassage.map((sentences,paragraphIndex)=>{
+    const translations = rentClozeTranslations[paragraphIndex];
+    const pairs = sentences.map((text,sentenceIndex)=>`
+      <p class="cloze-en" lang="en">${formatRentCloze(text,{showAnswers:true})}</p>
+      ${state.lang?`<p class="cloze-cn" lang="zh-CN">${h(translations[sentenceIndex])}</p>`:''}`);
+    const vocabulary = rentClozeParagraphWords[paragraphIndex].map(word=>{
+      const {meaning} = rentClozeWords.get(word);
+      return `<dt lang="en">${h(word)}</dt><dd>${h(meaning)}</dd>`;
+    }).join('');
+    return `<section class="cloze-paragraph">
+      <h3>第 ${paragraphIndex+1} 段</h3>
+      ${pairs.join('')}
+      <details class="cloze-glossary"><summary>本段重点词与搭配</summary><dl>${vocabulary}</dl></details>
+    </section>`;
+  }).join('');
+}
 function rentClozeStudy(){
-  const options = rentClozeOptions.map((word,index)=>`<li><b>${answerLetters[index]}</b> ${h(word)}</li>`).join('');
+  const showAnswers = $('#rentClozeShowAnswers')?.checked ?? true;
   const explanations = rentClozeQuestions.map(question=>{
     const focus = rentClozeReviewNumbers.has(question.paperNo);
     return `<li value="${question.paperNo}" class="${focus?'focus':''}">
@@ -322,19 +433,20 @@ function rentClozeStudy(){
     </li>`;
   }).join('');
   return `<section class="surface cloze-study" aria-labelledby="rentClozeTitle">
-    <h2 id="rentClozeTitle">租金管制 · 选词填空原文</h2>
+    <h2 id="rentClozeTitle">租金管制 · 原文与逐句翻译</h2>
     <p class="lede">2026 年 6 月第一套 · 第 26–35 题。每个备选词最多使用一次。</p>
-    <input class="cloze-answer-toggle" type="checkbox" id="rentClozeShowAnswers" checked>
+    <input class="cloze-answer-toggle" type="checkbox" id="rentClozeShowAnswers" ${showAnswers?'checked':''}>
     <label for="rentClozeShowAnswers">显示答案和逐题解析</label>
+    <div class="toolbar cloze-study-nav"><a href="#rentClozeOptions">A–O 选项词义 ↓</a></div>
     <div class="cloze-body">
-      ${rentClozeOriginal({showAnswers:true})}
-      <h3>A–O 备选词</h3>
-      <ol class="cloze-options" lang="en">${options}</ol>
+      ${rentClozeBilingual()}
+      <h3 id="rentClozeOptions">A–O 备选词及中文意思</h3>
+      ${rentClozeOptionList()}
       <div class="cloze-solution"><h3>答案与逐题解析</h3><ol class="cloze-explanations" start="26">${explanations}</ol></div>
     </div>
   </section>`;
 }
-function reading(){const a=currentArticle(), p=a.paras[state.paragraph];return `${header('READ & ANALYZE · 精读模式','按段落读懂原文','查看全文、逐段解读、译文和重点词汇。')}<div class="section-head"><div class="toggle article-tabs">${articles.map(x=>`<button data-action="article" data-id="${x.id}" class="${x.id===state.article?'on':''}">${x.label}</button>`).join('')}</div>${a.translation ? '' : `<button class="btn ghost" data-action="lang">${state.lang?'隐藏中文翻译':'显示中文翻译'}</button>`}</div>${a.id==='rent-caps'?rentClozeStudy():''}<div class="reading-nav"><div class="reading-index">${a.paper ? h(a.paper)+' · ' : ''}${h(a.label)} · 第 ${state.paragraph+1} / ${a.paras.length} 段</div><div style="min-width:110px;width:25%" class="thinprogress"><i style="width:${100*(state.paragraph+1)/a.paras.length}%"></i></div></div>
+function reading(){const a=currentArticle(), p=a.paras[state.paragraph];return `${header('READ & ANALYZE · 精读模式','按段落读懂原文','查看全文、逐段解读、译文和重点词汇。')}<div class="section-head"><div class="toggle article-tabs">${articles.map(x=>`<button data-action="article" data-id="${x.id}" class="${x.id===state.article?'on':''}">${x.label}</button>`).join('')}</div>${a.translation ? '' : `<button class="btn ghost" data-action="lang">${state.lang?'隐藏中文翻译':'显示中文翻译'}</button>`}</div>${a.id==='rent-caps'?rentClozeStudy()+'<div class="section-head"><h2>文章脉络与复习记录</h2></div>':''}<div class="reading-nav"><div class="reading-index">${a.paper ? h(a.paper)+' · ' : ''}${h(a.label)} · 第 ${state.paragraph+1} / ${a.paras.length} 段</div><div style="min-width:110px;width:25%" class="thinprogress"><i style="width:${100*(state.paragraph+1)/a.paras.length}%"></i></div></div>
 <div class="surface reading-card"><div class="para-head"><span class="para-no">PARAGRAPH ${a.id==='digital-nomads' ? answerLetters[state.paragraph] : String(state.paragraph+1).padStart(2,'0')}</span><span class="pill ${state.seen[a.id+'-'+state.paragraph]?'green':''}">${state.seen[a.id+'-'+state.paragraph]?'✓ 已精读':'学习中'}</span></div>${a.translation ? `<p class="cn reading-p">${h(p.cn)}</p><details class="translation-reference"><summary>展开英文参考译文</summary><p class="en reading-p">${h(p.en)}</p></details>` : `<p class="en reading-p">${h(p.en)}</p>${state.lang?`<p class="cn reading-p">${h(p.cn)}</p>`:''}`}<div class="insight"><b>✦ 这一段要抓住</b><div style="margin-top:5px">${h(p.point)}</div></div><div class="word-tags">${p.tags.map(t=>`<button data-action="lookup" data-word="${h(t)}">${h(t)} ↗</button>`).join('')}</div></div><div class="quiz-footer"><div class="toolbar"><button class="btn ghost" data-action="prev-para" ${state.paragraph===0?'disabled':''}>← 上一段</button><button class="btn secondary" data-action="mark-seen">${state.seen[a.id+'-'+state.paragraph]?'✓ 已读':'✓ 读过了'}</button></div><button class="btn" data-action="next-para">${state.paragraph===a.paras.length-1?'返回第一段 ↺':'下一段 →'}</button></div>
 <div class="section-head"><h2>文章结构 · 全局视角</h2><p>${a.sub}</p></div><div class="grid2">${a.structure.map(x=>`<div class="surface" style="padding:16px 19px"><b style="color:#4c53c3">${h(x[0])}</b><p style="color:#748096;font-size:13px;margin:6px 0 0">${h(x[1])}</p></div>`).join('')}</div><div class="section-head"><h2>段落跳转</h2></div><div class="toolbar">${a.paras.map((_,i)=>`<button class="btn ${state.paragraph===i?'':'ghost'}" style="padding:9px 13px" data-action="goto-para" data-index="${i}">${a.id==='digital-nomads' ? answerLetters[i] : i+1}${state.seen[a.id+'-'+i]?' ✓':''}</button>`).join('')}</div>`}
 function filteredWords(){return wordbank.filter(w=>(state.vocabFilter==='all'||(state.vocabFilter==='known'?!!state.learned[w.id]:!state.learned[w.id]))&&(`${w.word} ${w.meaning} ${w.example}`).toLowerCase().includes(state.query.toLowerCase()))}
@@ -348,21 +460,22 @@ function quizQuestions(mode=state.quizMode){
     return mode==='all' || (mode==='june' ? info.june : info.type===mode);
   });
 }
-function quizContext(q, open){
+function quizContext(q, open, vocabularyOpen){
   const {type, june} = quizSections[q.section];
   if (!june) return '';
   if (q.section==='rent-caps') {
-    return `<details class="quiz-context" id="quizContext" ${open?'open':''}><summary>查看带空全文</summary>${rentClozeOriginal({activeNo:q.paperNo})}</details>`;
+    return `<details class="quiz-context" id="quizContext" ${open?'open':''}><summary>查看带空全文</summary>${rentClozeOriginal(q.paperNo)}</details>
+      <details class="quiz-context" id="quizOptionMeanings" ${vocabularyOpen?'open':''}><summary>查看 A–O 选项中文意思</summary>${rentClozeOptionList()}</details>`;
   }
   const article = articles.find(a=>a.id===q.section);
   const label = type==='matching' ? '查看 A–M 段落' : type==='listening' ? '查看听力文字复盘' : '查看阅读材料';
   return `<details class="quiz-context" id="quizContext" ${open?'open':''}><summary>${label}</summary>${article.paras.map(({en},i)=>`<p><b>${type==='matching'?answerLetters[i]:i+1}.</b> ${h(en)}</p>`).join('')}</details>`;
 }
-function quizPage(contextOpen){let questions=quizQuestions(),i=Math.min(state.quizIndex,questions.length-1),q=questions[i],key=q.num.toString(),selected=state.selected[key],submitted=!!state.submitted;return `${header('PRACTICE · 真题训练','边做题，边理解出题逻辑','按套次或题型练习。租金管制选词填空使用试卷原文，答案供学习参考。')}<div class="section-head"><div class="toggle quiz-tabs">${Object.entries(quizModes).map(([mode,label])=>`<button data-action="quiz-mode" data-id="${mode}" class="${state.quizMode===mode?'on':''}" aria-pressed="${state.quizMode===mode}">${label} · ${quizQuestions(mode).length} 题</button>`).join('')}</div><div class="reading-index">${i+1} / ${questions.length}</div></div><div class="thinprogress" style="margin-bottom:20px"><i style="width:${100*(i+1)/questions.length}%"></i></div><div class="surface reading-card"><span class="quiz-num">QUESTION ${q.paperNo||q.num} · ${h(quizSections[q.section].label)}</span><div class="quiz-q">${quizPrompt[quizSections[q.section].type]}</div><p class="quiz-cite">${h(q.q)}</p>${quizContext(q,contextOpen)}<div class="answers">${q.options.map((o,j)=>`<button class="answer ${selected===j?'selected':''} ${submitted&&j===q.answer?'right':''} ${submitted&&selected===j&&selected!==q.answer?'wrong':''}" data-action="answer" data-id="${j}" ${submitted?'disabled':''}><span class="letter">${answerLetters[j]}</span><span>${h(o)}</span></button>`).join('')}</div>${submitted?`<div class="explain"><strong>${selected===q.answer?'✓ 回答正确':'✕ 这题需要再复习'} · 正确答案 ${answerLetters[q.answer]}</strong><div style="margin-top:7px">${h(q.why)}</div></div>`:''}<div class="quiz-footer"><button class="btn ghost" data-action="quiz-prev" ${i===0?'disabled':''}>← 上一题</button><div class="toolbar"><button class="btn secondary" data-action="quiz-submit" ${selected===undefined||submitted?'disabled':''}>查看解析</button><button class="btn" data-action="quiz-next">${i===questions.length-1?'查看总结 ↗':'下一题 →'}</button></div></div></div><div class="notebox" style="margin-top:20px">选词填空首先判断词性，再根据语境选词；仔细阅读先定位原文，再确认选项是不是可靠的同义替换。答题记录会加入「错题与复习」。</div>`}
+function quizPage(contextOpen, vocabularyOpen){let questions=quizQuestions(),i=Math.min(state.quizIndex,questions.length-1),q=questions[i],key=q.num.toString(),selected=state.selected[key],submitted=!!state.submitted;return `${header('PRACTICE · 真题训练','边做题，边理解出题逻辑','按套次或题型练习。租金管制选词填空使用试卷原文，答案供学习参考。')}<div class="section-head"><div class="toggle quiz-tabs">${Object.entries(quizModes).map(([mode,label])=>`<button data-action="quiz-mode" data-id="${mode}" class="${state.quizMode===mode?'on':''}" aria-pressed="${state.quizMode===mode}">${label} · ${quizQuestions(mode).length} 题</button>`).join('')}</div><div class="reading-index">${i+1} / ${questions.length}</div></div><div class="thinprogress" style="margin-bottom:20px"><i style="width:${100*(i+1)/questions.length}%"></i></div><div class="surface reading-card"><span class="quiz-num">QUESTION ${q.paperNo||q.num} · ${h(quizSections[q.section].label)}</span><div class="quiz-q">${quizPrompt[quizSections[q.section].type]}</div><p class="quiz-cite">${h(q.q)}</p>${quizContext(q,contextOpen,vocabularyOpen)}<div class="answers">${q.options.map((o,j)=>`<button class="answer ${selected===j?'selected':''} ${submitted&&j===q.answer?'right':''} ${submitted&&selected===j&&selected!==q.answer?'wrong':''}" data-action="answer" data-id="${j}" ${submitted?'disabled':''}><span class="letter">${answerLetters[j]}</span><span>${h(o)}</span></button>`).join('')}</div>${submitted?`<div class="explain"><strong>${selected===q.answer?'✓ 回答正确':'✕ 这题需要再复习'} · 正确答案 ${answerLetters[q.answer]}</strong><div style="margin-top:7px">${h(q.why)}</div></div>`:''}<div class="quiz-footer"><button class="btn ghost" data-action="quiz-prev" ${i===0?'disabled':''}>← 上一题</button><div class="toolbar"><button class="btn secondary" data-action="quiz-submit" ${selected===undefined||submitted?'disabled':''}>查看解析</button><button class="btn" data-action="quiz-next">${i===questions.length-1?'查看总结 ↗':'下一题 →'}</button></div></div></div><div class="notebox" style="margin-top:20px">选词填空首先判断词性，再根据语境选词；仔细阅读先定位原文，再确认选项是不是可靠的同义替换。答题记录会加入「错题与复习」。</div>`}
 function reviewPage(){let wrongNums=Object.keys(state.mistakes).filter(k=>state.mistakes[k]>0),items=allQuizzes.filter(q=>wrongNums.includes(String(q.num))),known=Object.values(state.learned).filter(Boolean).length;return `${header('REVIEW · 巩固区','错题与复习记录','优先回顾曾经答错的知识点，然后返回文章精读和词汇卡片进行针对性强化。')}<div class="grid3" style="margin-top:24px"><div class="surface stat"><div class="lab">累计作答</div><div class="num accent">${state.attempts}</div></div><div class="surface stat"><div class="lab">累计答对</div><div class="num success">${state.correct}</div></div><div class="surface stat"><div class="lab">标记掌握</div><div class="num accent2">${known}</div></div></div><div class="section-head"><h2>待巩固错题</h2><p>${items.length} 道题曾经答错</p></div>${items.length?items.map(q=>`<div class="missed"><b>第${q.paperNo||q.num}题 · ${h(quizSections[q.section].label)}</b><p>${h(q.why)}</p><button class="linkbtn" data-action="retry-q" data-id="${q.num}">重新做这题 →</button></div>`).join(''):'<div class="surface empty">暂无错题记录。可以先去「真题训练」做一轮。</div>'}<div class="section-head"><h2>推荐复习策略</h2></div><div class="steps"><div class="step"><i>1</i><b>词性先行</b><p>识别动词、形容词、名词和副词的位置。</p></div><div class="step"><i>2</i><b>搭配积累</b><p>如 be perceived as、take into account。</p></div><div class="step"><i>3</i><b>每次查错因</b><p>分辨词义误判、语法误判、原文定位失败。</p></div></div><div class="toolbar" style="margin-top:22px"><button class="btn secondary" data-action="page" data-id="vocab">去背词汇 →</button><button class="btn secondary" data-action="page" data-id="quiz">继续刷题 →</button><button class="btn ghost" data-action="export-progress">导出进度 ↓</button><button class="btn ghost" data-action="import-progress">导入进度 ↑</button><button class="btn ghost" data-action="reset-data">清空学习记录</button><input id="progressImport" class="hidden" type="file" accept=".json,application/json" aria-label="选择学习进度备份文件"></div>`}
 let quizFinish=false;
 function quizResults(){let qs=quizQuestions(),answered=qs.filter(q=>state.selected[q.num]!==undefined),correct=answered.filter(q=>state.selected[q.num]===q.answer),notanswered=qs.filter(q=>state.selected[q.num]===undefined);return `${header('PRACTICE · 一轮结束','这一轮练习回顾','只统计当前模式中已经作答的题目。你可以回看任一道题，或选择重做本轮。')}<div class="scoreboard" style="margin-top:24px"><strong>${correct.length}<span style="font-size:24px;color:#9da3bc"> / ${qs.length}</span></strong><p>已选答案正确 ${correct.length} 道 · 未作答 ${notanswered.length} 道</p><div class="toolbar" style="justify-content:center"><button class="btn" data-action="restart-quiz">重新做本轮</button><button class="btn secondary" data-action="page" data-id="review">错题复习</button></div></div><div class="section-head"><h2>本轮题目速查</h2></div><div class="word-list">${qs.map(q=>`<button class="word" style="text-align:left;align-items:center" data-action="retry-q" data-id="${q.num}"><span style="font-weight:800">${h(quizSections[q.section].label)} · 第 ${q.paperNo||q.num} 题</span><span style="font-size:13px;color:${state.selected[q.num]===q.answer?'#087d76':'#b53d49'}">${state.selected[q.num]===undefined?'未作答':state.selected[q.num]===q.answer?'✓ 正确':'✕ 待巩固'} · 答案 ${answerLetters[q.answer]}</span></button>`).join('')}</div>`}
-function render(keepScroll=false){document.querySelectorAll('.navbtn[data-page]').forEach(btn=>{btn.classList.toggle('active',btn.dataset.page===state.page);btn.setAttribute('aria-current',btn.dataset.page===state.page?'page':'false')});let pages={home,reading,vocab:vocabulary,grammar:grammarPage,quiz:quizFinish?quizResults:()=>quizPage(keepScroll && $('#quizContext')?.open),review:reviewPage};$('#pageRoot').innerHTML=pages[state.page]();if(state.page==='vocab'){$('#vocabSearch').addEventListener('input',e=>{let selection=e.target.selectionStart;state.query=e.target.value;state.flashIndex=0;state.flipped=false;render(true);let inp=$('#vocabSearch');inp.focus();inp.setSelectionRange(selection,selection)})}updateSidebar();if(!keepScroll)window.scrollTo({top:0,behavior:'instant'})}
+function render(keepScroll=false){document.querySelectorAll('.navbtn[data-page]').forEach(btn=>{btn.classList.toggle('active',btn.dataset.page===state.page);btn.setAttribute('aria-current',btn.dataset.page===state.page?'page':'false')});let pages={home,reading,vocab:vocabulary,grammar:grammarPage,quiz:quizFinish?quizResults:()=>quizPage(keepScroll && $('#quizContext')?.open, keepScroll && $('#quizOptionMeanings')?.open),review:reviewPage};$('#pageRoot').innerHTML=pages[state.page]();if(state.page==='vocab'){$('#vocabSearch').addEventListener('input',e=>{let selection=e.target.selectionStart;state.query=e.target.value;state.flashIndex=0;state.flipped=false;render(true);let inp=$('#vocabSearch');inp.focus();inp.setSelectionRange(selection,selection)})}updateSidebar();if(!keepScroll)window.scrollTo({top:0,behavior:'instant'})}
 function page(name){state.page=name;quizFinish=false;render()}
 function selectQuiz(qnum){state.quizMode='all';state.quizIndex=allQuizzes.findIndex(q=>q.num===qnum);state.page='quiz';state.submitted=false;quizFinish=false;render()}
 document.addEventListener('click',e=>{let btn=e.target.closest('button[data-action],button[data-page]');if(!btn)return;if(btn.dataset.page){page(btn.dataset.page);return}let action=btn.dataset.action,id=btn.dataset.id;
